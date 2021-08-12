@@ -2981,7 +2981,7 @@ INSERT INTO `zones_arr` (`id`, `xivdb_id`, `name`, `name_en`, `name_fr`, `name_d
 (5, 34, 'Upper La Noscea', 'Upper La Noscea', 'Haute-Noscea', 'Oberes La Noscea', '高地ラノシア', NULL, 41.9, 41.9, 1),
 (6, 350, 'Outer La Noscea', 'Outer La Noscea', 'Noscea Extérieure', 'Äußeres La Noscea', '外地ラノシア', NULL, 41.9, 41.9, 1),
 (7, 54, 'Central Shroud', 'Central Shroud', 'Forêt Centrale', 'Tiefer Wald', '黒衣森：中央森林', NULL, 41.9, 41.9, 2),
-(8, 55, 'East Shroud', 'East Shroud', 'Forêt De L\'est', 'Ostwald', '黒衣森：東部森林', NULL, 41.9, 41.9, 2),
+(8, 55, 'East Shroud', 'East Shroud', 'Forêt De est', 'Ostwald', '黒衣森：東部森林', NULL, 41.9, 41.9, 2),
 (9, 56, 'South Shroud', 'South Shroud', 'Forêt Du Sud', 'Südwald', '黒衣森：南部森林', NULL, 41.9, 41.9, 2),
 (10, 57, 'North Shroud', 'North Shroud', 'Forêt Du Nord', 'Nordwald', '黒衣森：北部森林', NULL, 41.9, 41.9, 2),
 (11, 42, 'Western Thanalan', 'Western Thanalan', 'Thanalan Occidental', 'Westliches Thanalan', '西ザナラーン', NULL, 41.9, 41.9, 3),

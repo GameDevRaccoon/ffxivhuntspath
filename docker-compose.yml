@@ -1,0 +1,38 @@
+version: "3.9"
+services:
+  mariadb:
+    build:
+      context: ./mariaDB
+    restart: always
+    container_name: mysql
+    ports: 
+      - 3306:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: 
+    networks:
+        - test
+
+  ffxivhunts:
+    build:
+      context: ./hunts
+    ports: 
+      - 80:80
+    depends_on: 
+      - "mariadb"
+    links:
+      - mariadb
+    networks:
+      - test
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
+    networks:
+     - test
+
+networks:
+  test:
+    name: test
+    external: true

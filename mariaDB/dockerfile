@@ -1,0 +1,8 @@
+FROM mariadb AS staging
+ENV MYSQL_ROOT_PASSWORD test
+ENV MYSQL_DATABASE mydatabase
+
+ADD database.sql /docker-entrypoint-initdb.d
+EXPOSE 3306
+
+CMD ["mysqld"]

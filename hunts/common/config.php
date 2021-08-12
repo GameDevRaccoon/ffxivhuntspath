@@ -5,16 +5,16 @@ class Config {
 	public static $con;
 
 	// Production
-  public static $domain = 'www.ffxivhuntspath.com';
-  public static $domain_cookie = '.ffxivhuntspath.com';
-  public static $context = '';
+  public static $domain = 'localhost:80/hunts';
+  public static $domain_cookie = 'localhost:80/hunts';
+  public static $context = '/hunts';
 	
-	public static $db_hostname = 'localhost';
-	public static $db_username = 'ffxiv2_admin';
+	public static $db_hostname = 'mariadb';
+	public static $db_username = 'root';
 	public static $db_password = '';
 	public static $db_table = 'ffxiv2';
 	
-  public static $cache_mode = 'memcached';
+  public static $cache_mode = 'files';
 	
 	// Dev
 	/*
