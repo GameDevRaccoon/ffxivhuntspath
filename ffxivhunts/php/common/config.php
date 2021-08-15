@@ -5,32 +5,13 @@ class Config {
 	public static $con;
 
 	// Production
-  public static $domain = 'localhost:80/hunts';
-  public static $domain_cookie = 'localhost:80/hunts';
-  public static $context = '/hunts';
+  	public static $domain = 'localhost:80/hunts';
+  	public static $domain_cookie = 'localhost:80/hunts';
+  	public static $context = '';	
+  	public static $cache_mode = 'files';
 	
-	public static $db_hostname = 'mariadb';
-	public static $db_username = 'root';
-	public static $db_password = '';
-	public static $db_table = 'ffxiv2';
-	
-  public static $cache_mode = 'files';
-	
-	// Dev
-	/*
-  public static $domain = 'localhost:80/hunts';
-  public static $domain_cookie = 'localhost:80/hunts';
-  public static $context = '/hunts';
-	
-	public static $db_hostname = 'localhost';
-	public static $db_username = 'root';
-	public static $db_password = 'root';
-	public static $db_table = 'ffxiv2';
-	
-  public static $cache_mode = 'files';
-	*/
 	// Others
-  public static $cookie_game_lang = 'glang';
+  	public static $cookie_game_lang = 'glang';
 	public static $cookie_web_lang = 'wlang';
 	public static $cookie_last_expansion = 'last_expansion';
 	public static $cookie_last_option = 'last_option';
@@ -45,7 +26,7 @@ class Config {
 			if (Config::$con) {
 				mysqli_close(Config::$con);
 			}
-			Config::$con = mysqli_connect(Config::$db_hostname, Config::$db_username, Config::$db_password, Config::$db_table) or die("Connection error with database server");
+			Config::$con = mysqli_connect(getenv('DB_CONNECTION'), getenv('DB_USER'), getenv('DB_PASS'), getenv('DB_SCHEMA'), 3306) or die("Connection error with database server");
 			Config::$con->set_charset("utf8");
 			
 			return Config::$con;

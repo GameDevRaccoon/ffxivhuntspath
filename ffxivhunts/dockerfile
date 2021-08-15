@@ -1,0 +1,8 @@
+FROM php:7.2-apache
+RUN docker-php-ext-install -j$(nproc) mysqli
+
+ENV DB_CONNECTION test
+ENV DB_USER test
+ENV DB_PASS test
+ENV DB_SCHEMA test
+COPY ./php/ /var/www/html

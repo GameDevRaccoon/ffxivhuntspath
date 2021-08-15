@@ -3,36 +3,38 @@ services:
   mariadb:
     build:
       context: ./mariaDB
+      network: hunts
     restart: always
-    container_name: mysql
+    container_name: mariadb
     ports: 
       - 3306:3306
     environment:
       MYSQL_ROOT_PASSWORD: 
-    networks:
-        - test
+      MYSQL_DATABASE: ffxiv2
+      MYSQL_USER: hunts
+      MYSQL_PASSWORD: 
+    networks: 
+      - hunts
 
   ffxivhunts:
     build:
-      context: ./hunts
+      context: ./ffxivhunts
+      network: hunts
+    container_name: hunts
     ports: 
       - 80:80
-    depends_on: 
-      - "mariadb"
-    links:
+    environment: 
+      DB_CONNECTION: mariadb
+      DB_USER: hunts
+      DB_PASS: 
+      DB_SCHEMA: ffxiv2
+    networks: 
+      - hunts
+    links: 
       - mariadb
-    networks:
-      - test
+    depends_on: 
+      - mariadb
 
-  adminer:
-    image: adminer
-    restart: always
-    ports:
-      - 8080:8080
-    networks:
-     - test
-
-networks:
-  test:
-    name: test
+networks: 
+  hunts:
     external: true
